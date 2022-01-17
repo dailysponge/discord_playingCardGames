@@ -4,7 +4,7 @@
 1.Key in discord bot token under .env 
 
 2. Add the bot into desired discord server
-3. Download pokercards image in attached files OR enable API call (slower)
+3. Download pokercards image in attached folder named Pokercards
 
 
 Bot Commands:
