@@ -19,7 +19,7 @@ client.on("message", async m => {
     m.channel.send("Bot is collecting bet amounts now");
     // COLLECT MESSAGE
     collector.on("collect", message => {
-      if (message.content === "#stop") {
+      if (message.content === "!stop") {
         collector.stop();
         playerName = message.author.username;
       }
