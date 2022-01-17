@@ -53,11 +53,6 @@ client.on("message", async m => {
       }
     });
   } 
-  else if (m.content === "!troll") {
-    for(var i =1;i<61;i++){
-    m.channel.send(i);
-    }
-  }
   //DEAL CARDS
   const pictureFile = fs.readdirSync(path.resolve(__dirname, './PokerCards'));
   var cardValue = 0;
