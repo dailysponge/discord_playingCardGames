@@ -62,11 +62,11 @@ Bot Commands:
 # blackjack Bot
 Bot Commands:
 
-`!startbet` : initiates discord message collection for bet amounts
-`!stop` : stops discord message collection and saves player data as {playerID}: {betAmount}. 
-`!draw`: Issues a random card to the player's direct message. Deck is NOT refreshed.
-`!end`: player ends their turn. Next player in rotation gets the issue the `!draw` command
-`!open`: Dealer gets to choose which playerID he wants to open and reveal the cards.
+`!startbet` : initiates discord message collection for bet amounts <br>
+`!stop` : stops discord message collection and saves player data as {playerID}: {betAmount}. <br>
+`!draw`: Issues a random card to the player's direct message. Deck is NOT refreshed.<br>
+`!end`: player ends their turn. Next player in rotation gets the issue the `!draw` command<br>
+`!open`: Dealer gets to choose which playerID he wants to open and reveal the cards.<br>
 `!wallet`: Displays wallet amount 
 # Game plan:
 `!startbet` 
