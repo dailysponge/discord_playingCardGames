@@ -4,7 +4,7 @@ var file = require("./inbetween.json");
 const Discord = require("discord.js");
 const { join } = require("path");
 const { cpuUsage } = require("process");
-require("dotenv").config();
+require("dotenv").config();  # store bot_token in .env file 
 const client = new Discord.Client();
 const pictureFolder = fs.readdirSync(path.resolve(__dirname, "./PokerCards"));
 const dict = {
