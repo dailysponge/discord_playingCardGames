@@ -4,7 +4,7 @@ var file = require("./inbetween.json");
 const Discord = require("discord.js");
 const { join } = require("path");
 const { cpuUsage } = require("process");
-require("dotenv").config();  # store bot_token in .env file 
+require("dotenv").config();
 const client = new Discord.Client();
 const pictureFolder = fs.readdirSync(path.resolve(__dirname, "./PokerCards"));
 const dict = {
@@ -79,7 +79,6 @@ client.on("message", message => {
             });
           }
         }
-
         await isDone();
         let data = fs.readFileSync("inbetween.json");
         let dataObject = JSON.parse(data);
@@ -93,7 +92,7 @@ client.on("message", message => {
           .setColor("#40e0d0")
           .setTitle("GAMEPLAY INSTRUCTION")
           .setDescription(
-            `!draw to draw the card. !play (number) to play. e.g. !play 4  or !play 5. !skip to skip
+            `!draw to draw the card. !play (number) to play. e.g. !play 4  or !play 5. !play 0 to skip
             if 2 same cards then e.g. !play 4red or !5black.
             !topup to add money to the pot and deduct money from your wallet.
             !wallet to see how much everyone win and lose`
@@ -187,7 +186,7 @@ client.on("message", message => {
             })
             .then(async collected => {
               console.log(filter.content)
-              if (collected.first().content.includes("!play")) {
+              if(collected.first().content.includes("!play")) {
                 var cardDrawn = false;
                 let contentArray = collected.first().content.split(" ");
                 let betAmount = contentArray[1];
@@ -212,7 +211,7 @@ client.on("message", message => {
                     //THREE CARDS ALL SAME = LOSE 3X MONEY
                     if (cardName[2] == cardName[0]) {
                       potSize += 3 * parseInt(betAmount);
-                      turnResult = "GG BRO";
+                      turnResult = "unlucky, you've lost...";
                       let data = fs.readFileSync("inbetween.json");
                       let dataObject = JSON.parse(data);
                       dataObject[message.author.username] -= 3 * parseInt(betAmount);
@@ -283,7 +282,7 @@ client.on("message", message => {
                     cardName[2] == cardName[1]
                   ) {
                     potSize += 2 * parseInt(betAmount);
-                    turnResult = "LMAO GOAL POST BRO";
+                    turnResult = "You've hit the goal post....";
                     let data = fs.readFileSync("inbetween.json");
                     let dataObject = JSON.parse(data);
                     dataObject[message.author.username] -= 2 * parseInt(betAmount);
@@ -312,6 +311,8 @@ client.on("message", message => {
                   message.channel.send(postTurnEmbed);
                 }, 1000);
               } else if (collected.first().content == "!skip") {
+                message.send("HELLLOOOOo")
+                console.log("OIII")
                 if (playerIndex == playerList.length - 1) {
                   playerIndex = 0;
                 } else {
